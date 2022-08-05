@@ -1,13 +1,13 @@
 import './App.css';
-import AirportSearchBar from './AirportSearchBar';
-import FlightTable from './FlightTable';
+import AirportSearchBar from './AirportSearchBar.jsx';
+import FlightTable from './FlightTable.jsx';
 import React from 'react';
-import CssBaseline from '@mui/material/CssBaseline';
+// import CssBaseline from '@mui/material/CssBaseline';
 
 function App() {
   return (
     <React.Fragment>
-      <CssBaseline />
+      {/* <CssBaseline /> */}
         <AirportSearchBar />
         <FlightTable />
     </React.Fragment>

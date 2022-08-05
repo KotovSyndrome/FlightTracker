@@ -2,7 +2,8 @@
 import axios from 'axios';
 
 const onGlobalSuccess = (response) => {
-  console.log('success');
+  console.log('success yay');
+  // console.log(response.data);
   return response.data;
 };
 
@@ -25,7 +26,7 @@ const callExpressAPI = (to, from) => {
   console.log('to ', to, 'from ', from);
   const config = {
     method: "GET",
-    url: `http://localhost:3000/api/flights/${to}/${from}`,
+    url: `http://localhost:3001/api/flights/${to}/${from}`,
   };
   return axios(config).then(onGlobalSuccess).catch(onGlobalError);
 };
