@@ -20,6 +20,7 @@ function AirportSearchBar() {
         setId(data['origin-search']);
         setDest_id(data['dest-search']);
         callExpressAPI(id, dest_id);
+        // console.log(data[0]);
     }   
 
     useEffect(() => {
