@@ -12,10 +12,13 @@ app.use(
         'Access-Control-Allow-Origin': '*',
     })
 )
-app.get('/api/flights/:to/:from', (req, res) => {
+app.get('/api/flights/:to/:from', async (req, res) => {
+    console.log('new request boys, order up!');
     console.log('req ', req, 'res ', res);
     console.log('req.params.to', req.params.to, 'req.params.from', req.params.from);
-    res.send(getFlights(req.params.to, req.params.from));
+    let data = await getFlights(req.params.to, req.params.from);
+    console.log(JSON.parse(JSON.stringify(data)));
+    res.send(JSON.parse(JSON.stringify(data)));
 })
 
 app.listen(port, () => {
