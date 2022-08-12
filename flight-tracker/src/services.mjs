@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const onGlobalSuccess = (response) => {
   console.log('success yay');
-  // console.log(response.data);
+  console.log(response);
   return response.data;
 };
 

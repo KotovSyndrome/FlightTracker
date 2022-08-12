@@ -25,7 +25,7 @@ function AirportSearchBar() {
     useEffect(() => {
         // update the table here
         console.log(id + ', ' + dest_id);
-    })
+    },[])
 
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
