@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { useForm } from "react-hook-form";
 import {callExpressAPI} from './services.mjs';
+import Data from './FlightData.json';
 
 function AirportSearchBar() {
     const [id, setId] = useState("");
@@ -19,7 +20,8 @@ function AirportSearchBar() {
         console.log('onSubmit called');
         setId(data['origin-search']);
         setDest_id(data['dest-search']);
-        callExpressAPI(id, dest_id);
+        console.log(Data.flights[0].segments[0]);
+        // callExpressAPI(id, dest_id);
         // console.log(data[0]);
     }   
 
