@@ -1,4 +1,4 @@
-import * as React from 'react';
+// import * as React from 'react';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -20,8 +20,21 @@ function createFlights(airline, ident, aircraft, status, departure, arrival) {
 // }
 
 for (let flight of data.flights) {
-  rows.push(createFlights(flight.segments[0].operator, flight.segments[0].ident, flight.segments[0].aircraft_type, 'Scheduled (On Time)', flight.segments[0].scheduled_out, flight.segments[0].scheduled_in));
+  rows.push(createFlights(flight.segments[0].operator, flight.segments[0].ident, flight.segments[0].aircraft_type, 'Scheduled (On Time)', 
+  (flight.segments[0].scheduled_out === null ? 'none' : humanReadableDateTime(flight.segments[0].scheduled_out)[0] + ' ' + humanReadableDateTime(flight.segments[0].scheduled_out)[1]),
+  (flight.segments[0].scheduled_in === null ? 'none' : humanReadableDateTime(flight.segments[0].scheduled_in)[0] + ' ' + humanReadableDateTime(flight.segments[0].scheduled_in)[1])));
 }
+
+function humanReadableDateTime(date_time_string) {
+  // let new_date_time = date_time_string.split('T');
+  // console.log(new_date_time);
+  return date_time_string.split('T');
+}
+
+  // let date_arr = {};
+  // for (let flight of data.flights) {
+  //   date_arr[flight.segments[0].scheduled_out] = humanReadableDateTime(flight.segments[0].scheduled_out);
+  // }
 
 // const rows = [
     // createFlights(data.flights[0].segments[0].operator, data.flights[0].segments[0].ident, data.flights[0].segments[0].aircraft_type, 'Scheduled (On Time)', data.flights[0].segments[0].scheduled_out, data.flights[0].segments[0].scheduled_in)
@@ -39,11 +52,11 @@ export default function BasicTable() {
         <TableHead>
           <TableRow>
             <TableCell>Airline</TableCell>
-            <TableCell align="right">Ident</TableCell>
-            <TableCell align="right">Aircraft</TableCell>
-            <TableCell align="right">Status</TableCell>
-            <TableCell align="right">Departure</TableCell>
-            <TableCell align="right">Arrival</TableCell>
+            <TableCell align="center">Ident</TableCell>
+            <TableCell align="center">Aircraft</TableCell>
+            <TableCell align="center">Status</TableCell>
+            <TableCell align="center">Departure</TableCell>
+            <TableCell align="center">Arrival</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -55,11 +68,11 @@ export default function BasicTable() {
               <TableCell component="th" scope="row">
                 {row.airline}
               </TableCell>
-              <TableCell align="right">{row.ident}</TableCell>
-              <TableCell align="right">{row.aircraft}</TableCell>
-              <TableCell align="right">{row.status}</TableCell>
-              <TableCell align="right">{row.departure}</TableCell>
-              <TableCell align="right">{row.arrival}</TableCell>
+              <TableCell align="center">{row.ident}</TableCell>
+              <TableCell align="center">{row.aircraft}</TableCell>
+              <TableCell align="center">{row.status}</TableCell>
+              <TableCell align="center">{row.departure}</TableCell>
+              <TableCell align="center">{row.arrival}</TableCell>
             </TableRow>
           ))}
         </TableBody>
