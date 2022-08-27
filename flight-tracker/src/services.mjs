@@ -9,14 +9,9 @@ const onServerSuccess = (response) => {
 };
 
 const onGlobalSuccess = (response) => {
-<<<<<<< HEAD
-  console.log('success yay');
-  console.log(response);
-=======
   console.log('AeroAPI success yay');
   console.log(Date.now());
   console.log(response.data);
->>>>>>> master
   return response.data;
 };
 
